@@ -1,17 +1,50 @@
 package com.epam.rd.autotasks.triangle;
 
 class Triangle {
+    Point a;
+    Point b;
+    Point c;
+    double length1, length2, length3;
 
-    public Triangle(Point a, Point b, Point c) {
-        //TODO
+    public Triangle(Point a, Point b, Point c) throws IllegalArgumentException {
+        if ((length1(a, b) >= length2(a, c) + length3(c, b)) || (length2(a, c) >= (length1(a, b) + length3(c, b))) || (length3(c, b)) >= length2(a, c) + (length1(a, b))) {
+            throw new IllegalArgumentException();
+        } else {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+    }
+
+    double length1(Point a, Point b) {
+        double xDistanceSquare = Math.pow(a.getX() - b.getX(), 2);
+        double yDistanceSquare = Math.pow(a.getY() - b.getY(), 2);
+        return Math.sqrt(xDistanceSquare + yDistanceSquare);
+    }
+
+    double length2(Point a, Point c) {
+        double xDistanceSquare = Math.pow(a.getX() - c.getX(), 2);
+        double yDistanceSquare = Math.pow(a.getY() - c.getY(), 2);
+        return Math.sqrt(xDistanceSquare + yDistanceSquare);
+    }
+
+    double length3(Point c, Point b) {
+        double xDistanceSquare = Math.pow(c.getX() - b.getX(), 2);
+        double yDistanceSquare = Math.pow(c.getY() - b.getY(), 2);
+        return Math.sqrt(xDistanceSquare + yDistanceSquare);
     }
 
     public double area() {
-        //TODO
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        double area = Math.abs((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())) / 2;
+        return area;
     }
 
-    public Point centroid(){
-        //TODO
+    public Point centroid() {
+        double xc = (a.getX() + b.getX() + c.getX()) / 3;
+        double yc = (a.getY() + b.getY() + c.getY()) / 3;
+        return new Point(xc, yc);
     }
-
 }
