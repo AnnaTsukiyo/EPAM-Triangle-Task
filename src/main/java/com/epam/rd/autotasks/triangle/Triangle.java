@@ -42,9 +42,25 @@ class Triangle {
         return area;
     }
 
+    @Override
     public Point centroid() {
         double xc = (a.getX() + b.getX() + c.getX()) / 3;
         double yc = (a.getY() + b.getY() + c.getY()) / 3;
         return new Point(xc, yc);
+    }
+
+    @Override
+    public boolean isTheSame(Figure figure) {
+        if (this == figure) {
+            return true;
+        }
+        if (!(figure instanceof Triangle)) {
+            return false;
+        }
+        if (figure == null) {
+            return false;
+        }
+        Triangle one = (Triangle) figure;
+        return (this.a == one.a) && (this.b == one.b) && (this.c == one.c);
     }
 }
