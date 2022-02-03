@@ -62,4 +62,5 @@ class Triangle {
         Triangle one = (Triangle) figure;
         return (this.a == one.a) && (this.b == one.b) && (this.c == one.c);
     }
+
 }
