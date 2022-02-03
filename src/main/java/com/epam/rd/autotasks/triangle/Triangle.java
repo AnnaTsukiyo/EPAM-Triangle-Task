@@ -35,14 +35,6 @@ class Triangle extends Figure {
         return Math.sqrt(xDistanceSquare + yDistanceSquare);
     }
 
-    public double area() {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        double area = Math.abs((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())) / 2;
-        return area;
-    }
-
     @Override
     public Point centroid() {
         double xc = (a.getX() + b.getX() + c.getX()) / 3;
