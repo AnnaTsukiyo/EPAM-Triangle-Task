@@ -48,7 +48,6 @@ class Triangle {
         double yc = (a.getY() + b.getY() + c.getY()) / 3;
         return new Point(xc, yc);
     }
-
     @Override
     public boolean isTheSame(Figure figure) {
         if (this == figure) {
