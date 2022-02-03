@@ -1,6 +1,7 @@
 package com.epam.rd.autotasks.triangle;
 
-class Triangle {
+class Triangle extends Figure {
+
     Point a;
     Point b;
     Point c;
@@ -48,6 +49,7 @@ class Triangle {
         double yc = (a.getY() + b.getY() + c.getY()) / 3;
         return new Point(xc, yc);
     }
+
     @Override
     public boolean isTheSame(Figure figure) {
         if (this == figure) {
@@ -62,5 +64,4 @@ class Triangle {
         Triangle one = (Triangle) figure;
         return (this.a == one.a) && (this.b == one.b) && (this.c == one.c);
     }
-
 }
